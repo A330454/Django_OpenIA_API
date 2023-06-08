@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,5 +124,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# OPENIA API INTEGRATION
-OPENAI_API_KEY = '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'
+# OPENIA API API TOKEN
+os.environ["OPENAI_API_KEY"] = "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"
+
+OPENAI_API_KEY = "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"

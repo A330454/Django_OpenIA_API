@@ -1,11 +1,15 @@
-import openia
-from django.conf import settings
+import openai
 
-def generate_openia_text(prompt):
-    openia.api.key = settings.OPEN_API_KEY
-    response = openia.Completion.create(
-        engine='davinci',
-        prompt=prompt,
-        max_tokens=100
+openai.api_key = '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'
+
+def gpt3_request(prompt, model="gpt-3.5-turbo"):
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
-    return response.choices[0].text.strip()
+    return response['choices'][0]['message']['content']
